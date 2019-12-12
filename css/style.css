@@ -1,27 +1,23 @@
-/*
-html * {
-    font-family: 'Roboto Condensed';
-}
-*/
-html {
-    background-color: #F2F2F2;
-}
-
-body {
+:root {
+    font-size: 1.5rem;
     color: #222;
     font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
     font-weight: 400;
     line-height: 1.5;
-    cursor: auto;
+}
+html {
+    background-color: #F2F2F2;
 }
 
-.tariff {
+.container {
     display: flex;
-    flex-direction: column;
-
+    flex-wrap: wrap;
+    justify-content: space-around;
+} 
+.tariff {
     background-color: #FFFFFF;
     border: 1px solid #c8c7cc;
-    font-size: 25px;
+    width: 100%;
     margin-bottom: 30px;
 }
 .tariff .top {
@@ -31,10 +27,12 @@ body {
 }
 .tariff .top .title {
     color: #6fb316;
+    font-size: 1.1rem;
 }
 .tariff .content_link {
     display: block;
     position: relative;
+    height: 100%
 }
 .tariff .content_link::after {
     display: block;
@@ -64,9 +62,12 @@ body {
     padding: 5px 10px 5px 20px;
 }
 .tariff .content .package {
-    font-size: 20px;
+    font-size: 0.8rem;
     color: #4d575d;
     padding: 5px 10px 5px 20px;
+}
+.tariff .content .package_list {
+    line-height: 1.3;
 }
 
 .tariff .bottom {
@@ -76,11 +77,11 @@ body {
 }
 .tariff .bottom a {
     color: #007aff;
-    font-size: 20px;
+    font-size: 0.8rem;
 }
 
 
-
+/* Background colors */
 .bg-brown {
     background-color: #70603e;
 }
@@ -90,3 +91,109 @@ body {
 .bg-orange {
     background-color: #EE4700;
 }
+/* --- */
+
+/* Media queries */
+@media only screen and (min-width: 640px) and (max-width: 1023px) {
+    .container {
+        padding: 25px;
+    }
+    .tariff {
+        width: 49%;
+        margin-bottom: 7px;
+        box-shadow: 0 .25rem .25rem 0 rgba(0,0,0,.2);
+    }
+    .tariff .content {
+        height: 200px;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .container {
+        padding: 50px;
+    }
+    .tariff {
+        width: 32%;
+        box-shadow: 0 .25rem .25rem 0 rgba(0,0,0,.2);
+    }
+    .tariff .content {
+        height: 200px;
+    }
+}
+/* --- */
+
+
+/* --- VARIANTS STYLES ---*/
+
+.variants_container header {
+    position: relative;
+    width: 100%;
+    margin-bottom: 50px;
+    border: 1px solid #c8c7cc;
+    cursor: pointer;
+}
+.variants_container header::before {
+    display: block;
+    position: absolute;
+    content: ' ';
+
+    background-image: url('/assets/left-arrow-green.svg');
+    background-size: 30px 30px;
+
+    height: 30px;
+    width: 30px;
+    right: 100%;
+    margin-right: -40px;
+    top: 45%;
+    margin-top: -12px;
+}
+
+.variants_container header h2 {
+    display: block;
+    padding: 10px 0;
+
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+
+    background-color: #fff;
+}
+
+.tariff.variants .content {
+    padding-bottom: 10px;
+}
+.tariff.variants .content_link::after {
+    top: 60%;
+}
+
+.tariff.variants .price {
+    font-weight: 600;
+}
+
+/* ---------------------- */
+
+/* Media queries */
+@media only screen and (min-width: 640px) and (max-width: 1023px) {
+    .variants_container {
+        padding-top: 100px;
+    }
+    .variants_container > header {
+        position: fixed;
+        top: 0;
+    }
+    .variants .content {
+        height: 140px;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .variants_container {
+        padding-top: 100px;
+    }
+    .variants_container > header {
+        position: fixed;
+        top: 0;
+    }
+    .variants .content {
+        height: 140px;
+    }
+}
+/* --- */
