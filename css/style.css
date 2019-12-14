@@ -7,6 +7,7 @@
 }
 html {
     background-color: #F2F2F2;
+    font-family: 'Roboto Condensed';
 }
 
 .container {
@@ -131,6 +132,12 @@ html {
     border: 1px solid #c8c7cc;
     cursor: pointer;
 }
+.variants_container header:hover {
+    opacity: 0.8;
+}
+.variants_container header:active {
+    opacity: 1;
+}
 .variants_container header::before {
     display: block;
     position: absolute;
@@ -194,6 +201,62 @@ html {
     }
     .variants .content {
         height: 140px;
+    }
+}
+/* --- */
+
+/* --- PARAMETERS STYLES ---*/
+
+.tariff .content .period {
+    font-size: 0.8rem;
+    color: #4d575d;
+    opacity: 0.6;
+    padding: 5px 10px 5px 20px;
+}
+.tariff .content .period_list {
+    line-height: 1.3;
+}
+.parameters_container .bottom {
+    padding-right: 20px;
+}
+.parameters_container .bottom_button {
+    display: block;
+    width: 100%;
+    height: 65px;
+    cursor: pointer;
+
+    font-size: 1rem;
+    color: #fff;
+    text-align: center;
+    background-color: #6fb316;
+} 
+.parameters_container .bottom_button:hover {
+    opacity: 0.9;
+}
+
+/* ------------------------ */
+
+/* Media queries */
+@media only screen and (min-width: 640px) and (max-width: 1023px) {
+    .parameters_container {
+        padding-top: 100px;
+    }
+    .tariff.parameters {
+        width: 65%;
+    }
+    .parameters .content {
+        height: unset;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .parameters_container {
+        padding-top: 100px;
+    }
+    .tariff.parameters {
+        width: 65%;
+    }
+    .parameters .content {
+        height: unset;
     }
 }
 /* --- */

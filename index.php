@@ -1,3 +1,7 @@
+<?
+
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +27,7 @@
                     <span class="speed_measurement">Мбит/с</span>
                 </div>
                 <div class="price">
-                    <span class="price_count">350 - 480</span>
+                    <span class="price_count">350&#8210;480</span>
                     <span class="price_measurement">&#8381/мес</span>
                 </div>
             </a>
@@ -44,7 +48,7 @@
                     <span class="speed_measurement">Мбит/с</span>
                 </div>
                 <div class="price">
-                    <span class="price_count">450 - 600</span>
+                    <span class="price_count">450&#8210;600</span>
                     <span class="price_measurement">&#8381/мес</span>
                 </div>
                 <div class="package">
@@ -71,7 +75,7 @@
                     <span class="speed_measurement">Мбит/с</span>
                 </div>
                 <div class="price">
-                    <span class="price_count">650 - 800</span>
+                    <span class="price_count">650&#8210;800</span>
                     <span class="price_measurement">&#8381/мес</span>
                 </div>
                 <div class="package">
