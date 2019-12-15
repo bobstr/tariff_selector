@@ -152,8 +152,8 @@
 </div>
 </main>
 
-<script src="scripts/vue.js"></script>
-<script src="scripts/script.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/script.js"></script>
 
 
 </body>
