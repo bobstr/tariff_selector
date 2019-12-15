@@ -97,9 +97,3 @@ function array_sort($array, $on, $order=SORT_ASC)
 
     return $new_array;
 }
-
-/*
-echo '<pre>';
-print_r($decodedJson);
-echo '</pre>';
-*/

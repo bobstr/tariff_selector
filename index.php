@@ -102,7 +102,6 @@
                 $pay_period = $variantsVal['pay_period'];
                 $price_once =  $variantsVal['price'];
                 $price_per_month = $price_once / $pay_period;
-                $currentVariantID = $variantsVal['ID'];
                 $timestampAndTimezone = explode('+', $variantsVal['new_payday']);
                 $active_to_date = gmdate("d.m.Y", ($timestampAndTimezone[0] + $timestampAndTimezone[1]));
             ?>

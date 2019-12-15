@@ -190,6 +190,9 @@ html {
     .variants .content {
         height: 140px;
     }
+    .tariff.variants .content_link::after {
+        top: 50%;
+    }
 }
 @media only screen and (min-width: 1024px) {
     .variants_container {
@@ -201,6 +204,9 @@ html {
     }
     .variants .content {
         height: 140px;
+    }
+    .tariff.variants .content_link::after {
+        top: 50%;
     }
 }
 /* --- */
