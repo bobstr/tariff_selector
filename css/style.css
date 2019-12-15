@@ -7,7 +7,6 @@
 }
 html {
     background-color: #F2F2F2;
-    font-family: 'Roboto Condensed';
 }
 
 .container {
@@ -33,7 +32,8 @@ html {
 .tariff .content_link {
     display: block;
     position: relative;
-    height: 100%
+    height: 100%;
+    cursor: pointer;
 }
 .tariff .content_link::after {
     display: block;
@@ -83,13 +83,13 @@ html {
 
 
 /* Background colors */
-.bg-brown {
+.earth .speed {
     background-color: #70603e;
 }
-.bg-blue {
+.water .speed {
     background-color: #0075d9;
 }
-.bg-orange {
+.fire .speed {
     background-color: #EE4700;
 }
 /* --- */
