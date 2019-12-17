@@ -5,7 +5,8 @@ var app = new Vue({
         chosenVariant: -1,
         allTariffsShow: true,
         allVariantsShow: true,
-        relocationConfirmed: false
+        relocationConfirmed: false,
+        elementName: ''
     },
     methods: {
         tariffSelector: function(num) {

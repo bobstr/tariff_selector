@@ -1,4 +1,4 @@
-<? require_once('php/helper.php'); ?>
+<?php  require_once('php/helper.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,54 +13,53 @@
 <body>
 <main>
 <div id="app">
-    <div class="container" v-if="allTariffsShow">
     <!-- Tariffs -->
-    <? foreach ($arData['tarifs'] as $key => $arTariffs): ?>
-        <section class="tariff <?=element_translator($arTariffs['title']);?>">
+    <div class="container" v-if="allTariffsShow">
+    <?php  foreach ($arData['tarifs'] as $key => $arTariffs): ?>
+        <section class="tariff <?php element_translator($arTariffs['title']);?>">
             <div class="top">
-                <h2 class="title">Тариф "<?=$arTariffs['title']?>"</h2>
+                <h2 class="title">Тариф "<?php echo $arTariffs['title'];?>"</h2>
             </div>
             <div class="content">
-                <div class="content_link" @click="tariffSelector(<?=$key?>); allTariffsShow = false">
+                <div class="content_link" @click="tariffSelector(<?php echo $key;?>); allTariffsShow = false">
                     <div class="speed">
-                        <span class="speed_count"><?=$arTariffs['speed']?></span>
+                        <span class="speed_count"><?php echo $arTariffs['speed'];?></span>
                         <span class="speed_measurement">Мбит/с</span>
                     </div>
                     <div class="price">
-                        <span class="price_count"><?=price_range($arTariffs['tarifs'])?></span>
-                        <span class="price_measurement">&#8381/мес</span>
+                        <span class="price_count"><?php print(price_range($arTariffs['tarifs']));?></span>
+                        <span class="price_measurement">&#8381;/мес</span>
                     </div>
-                    <?if (isset($arTariffs['free_options'])):?>
+                    <?php if (isset($arTariffs['free_options'])):?>
                         
                         <div class="package">
                             <ul class="package_list">
-                                <?foreach ($arTariffs['free_options'] as $option):?>
-                                    <li><?=$option;?></li>
-                                <?endforeach;?>
+                                <?php foreach ($arTariffs['free_options'] as $option):?>
+                                    <li><?php echo $option;?></li>
+                                <?php endforeach;?>
                             </ul>
                         </div>
-                    <?endif;?>
+                    <?php endif;?>
                 </div>
             </div>
             <div class="bottom">
-                <a href="<?=$arTariffs['link']?>">узнать подробнее на сайте www.sknt.ru</a>
+                <a href="<?php echo $arTariffs['link'];?>">узнать подробнее на сайте www.sknt.ru</a>
             </div>
         </section>
-    <?endforeach;?>
+    <?php endforeach;?>
     </div>
-    <!-- /Tariffs -->
 
     <!-- Variants -->
-    <? foreach ($arData['tarifs'] as $key => $arTariffs): ?>
-    <?
+    <?php  foreach ($arData['tarifs'] as $key => $arTariffs): ?>
+    <?php 
         $price_per_month_without_discount = 0;
     ?>
-        <div class="container variants_container parameters_container" v-if="chosenTariff == <?=$key?> && allVariantsShow">
+        <div class="container variants_container parameters_container" v-if="chosenTariff == <?php echo $key;?> && allVariantsShow">
             <header @click="chosenTariff = -1; allTariffsShow = true">
-                <h2>Тариф "<?=$arTariffs['title'];?>"</h2>
+                <h2>Тариф "<?php echo $arTariffs['title'];?>"</h2>
             </header>
-            <? foreach (array_sort($arTariffs['tarifs'], 'pay_period') as $subTariffKey => $subTariffVal): ?>
-            <?
+            <?php  foreach (array_sort($arTariffs['tarifs'], 'pay_period') as $subTariffKey => $subTariffVal): ?>
+            <?php 
                 $pay_period = $subTariffVal['pay_period'];
                 $price_once =  $subTariffVal['price'];
                 $price_per_month = $price_once / $pay_period;
@@ -71,67 +70,67 @@
             ?>
             <section class="tariff variants">
                 <div class="top">
-                    <h2 class="title"><?=($pay_period . ' ' . rus_month_ending($pay_period))?></h2>
+                    <h2 class="title"><?php print($pay_period . ' ' . rus_month_ending($pay_period));?></h2>
                 </div>
                 <div class="content">
-                    <div class="content_link" @click="variantSelector(<?=$subTariffVal['ID']?>); allVariantsShow = false">
+                    <div class="content_link" @click="variantSelector(<?php echo $subTariffVal['ID'];?>); allVariantsShow = false">
                         <div class="price">
-                            <span class="price_count"><?=$price_per_month;?></span>
-                            <span class="price_measurement">&#8381/мес</span>
+                            <span class="price_count"><?php echo $price_per_month;?></span>
+                            <span class="price_measurement">&#8381;/мес</span>
                         </div>
                         <div class="package">
                             <ul class="package_list">
-                                <li>разовый платёж &#8210; <span><?=$price_once;?></span> &#8381</li>
-                                <?if ($pay_period != 1): ?>
-                                    <li>скидка &#8210; <span><?=$discount;?></span> &#8381</li>
-                                <?endif;?>
+                                <li>разовый платёж &#8210; <span><?php echo $price_once;?></span> &#8381;</li>
+                                <?php if ($pay_period != 1): ?>
+                                    <li>скидка &#8210; <span><?php echo $discount;?></span> &#8381;</li>
+                                <?php endif;?>
                             </ul>
                         </div>
                     </div>
                 </div>
             </section>
-            <?endforeach;?>
+            <?php endforeach;?>
         </div>
-    <?endforeach;?>
-    <!-- /Variants -->
+    <?php endforeach;?>
+
 
     <!-- Parameters -->
-    <? foreach ($arData['tarifs'] as $key => $arTariffs): ?>
-        <? foreach (array_sort($arTariffs['tarifs'], 'pay_period') as $variantsKey => $variantsVal): ?>
-            <?
+    <?php  foreach ($arData['tarifs'] as $key => $arTariffs): ?>
+        <?php  foreach (array_sort($arTariffs['tarifs'], 'pay_period') as $variantsKey => $variantsVal): ?>
+            <?php 
                 $pay_period = $variantsVal['pay_period'];
                 $price_once =  $variantsVal['price'];
                 $price_per_month = $price_once / $pay_period;
                 $timestampAndTimezone = explode('+', $variantsVal['new_payday']);
                 $active_to_date = gmdate("d.m.Y", ($timestampAndTimezone[0] + $timestampAndTimezone[1]));
             ?>
-            <div class="container variants_container parameters_container" v-if="chosenVariant == <?=$variantsVal['ID']?>">
+            <div class="container variants_container parameters_container" v-if="chosenVariant == <?php echo $variantsVal['ID'];?>">
                 <header @click="chosenVariant = -1; allVariantsShow = true">
                     <h2>Выбор тарифа</h2>
                 </header>
                 <section class="tariff variants parameters" >
                     <div class="top">
-                        <h2 class="title">Тариф "<?=$arTariffs['title'];?>"</h2>
+                        <h2 class="title">Тариф "<?php echo $arTariffs['title'];?>"</h2>
                     </div>
                     <div class="content">
                         <div class="price">
                             <div>
                                 <span class="pay_period_title">Период оплаты &#8210; </span>
-                                <span class="pay_period_months"><?=($pay_period . ' ' . rus_month_ending($pay_period))?></span>
+                                <span class="pay_period_months"><?php print($pay_period . ' ' . rus_month_ending($pay_period));?></span>
                             </div>
-                            <span class="price_count"><?=$price_per_month?></span>
-                            <span class="price_measurement">&#8381/мес</span>
+                            <span class="price_count"><?php echo $price_per_month;?></span>
+                            <span class="price_measurement">&#8381;/мес</span>
                         </div>
                         <div class="package">
                             <ul class="package_list">
-                                <li>разовый платёж &#8210; <span><?=$price_once?></span> &#8381</li>
-                                <li>со счёта спишется &#8210; <span><?=$price_once?></span> &#8381</li>
+                                <li>разовый платёж &#8210; <span><?php echo $price_once;?></span> &#8381;</li>
+                                <li>со счёта спишется &#8210; <span><?php echo $price_once;?></span> &#8381;</li>
                             </ul>
                         </div>
                         <div class="period">
                             <ul class="period_list">
                                 <li>вступит в силу &#8210; <span>сегодня</span></li>
-                                <li>активно до &#8210; <span><?=$active_to_date;?></span></li>
+                                <li>активно до &#8210; <span><?php echo $active_to_date;?></span></li>
                             </ul>
                         </div>
                     </div>
@@ -144,9 +143,9 @@
                     </div>
                 </section>
             </div>
-        <?endforeach;?>
-    <?endforeach;?>
-    <!-- /Parameters -->
+        <?php endforeach;?>
+    <?php endforeach;?>
+
 
 </div>
 </main>

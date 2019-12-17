@@ -1,5 +1,4 @@
-<?
-define ("IS_PARSER_INCLUDED", true);
+<?php
 
 $jsonSrc = 'https://www.sknt.ru/job/frontend/data.json';
 $jsonData = file_get_contents($jsonSrc);
@@ -7,18 +6,20 @@ $arData = json_decode($jsonData, true);
 
 
 function element_translator($element) {
-    if (strpos(strtolower($element), 'вода') !== false ) {
-        return 'water';
+    $word = '';
+    if (strpos($element, 'Вода') !== false ) {
+        $word = 'water';
     } 
-    else if (strpos(strtolower($element), 'огонь') !== false ) {
-        return 'fire';
+    else if (strpos($element, 'Огонь') !== false ) {
+        $word = 'fire';
     }
-    else if (strpos(strtolower($element), 'земля') !== false ) {
-        return 'earth';
+    else if (strpos($element, 'Земля') !== false ) {
+        $word = 'earth';
     }
     else {
-        return;
+        $word = 'element-missed';
     }
+    echo $word;
 }
 
 function price_range($array) {

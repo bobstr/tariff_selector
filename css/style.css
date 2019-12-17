@@ -10,10 +10,14 @@ html {
 }
 
 .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-} 
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+}  
 .tariff {
     background-color: #FFFFFF;
     border: 1px solid #c8c7cc;
@@ -180,8 +184,8 @@ html {
 
 /* Media queries */
 @media only screen and (min-width: 640px) and (max-width: 1023px) {
-    .variants_container {
-        padding-top: 100px;
+    .container.variants_container {
+        padding: 100px 0 0 0;
     }
     .variants_container > header {
         position: fixed;
@@ -195,8 +199,8 @@ html {
     }
 }
 @media only screen and (min-width: 1024px) {
-    .variants_container {
-        padding-top: 100px;
+    .container.variants_container {
+        padding: 100px 0 0 0;
     }
     .variants_container > header {
         position: fixed;
@@ -244,25 +248,25 @@ html {
 
 /* Media queries */
 @media only screen and (min-width: 640px) and (max-width: 1023px) {
-    .parameters_container {
-        padding-top: 100px;
+    .container.variants_container.parameters_container {
+        padding: 100px 0 0 0;
     }
     .tariff.parameters {
         width: 65%;
     }
     .parameters .content {
-        height: unset;
+        height: inherit;
     }
 }
 @media only screen and (min-width: 1024px) {
-    .parameters_container {
-        padding-top: 100px;
+    .container.variants_container.parameters_container {
+        padding: 100px 0 0 0;
     }
     .tariff.parameters {
         width: 65%;
     }
     .parameters .content {
-        height: unset;
+        height: inherit;
     }
 }
 /* --- */
